@@ -1,0 +1,93 @@
+<div style="overflow: auto;height: 100vh;padding:0 15px 10% 15px;">
+    <div style="height: auto;">
+        <ngb-carousel #carousel [interval]="6000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)">
+            <ng-template ngbSlide *ngFor="let img of images; index as i">
+                <div class="carousel-caption" style="color: white;">
+                    <h3 style="color: white;">My slide {{i + 1}} title</h3>
+                </div>
+                <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
+                    <div class="picsum-img-wrapper">
+                        <img [src]="img" alt="My image {{i + 1}} description" style="    max-height: 40vh;">
+                    </div>
+                </a>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+
+
+    <div style="overflow: hidden;height: 26vh;position: relative;margin:20px 0;">
+        <div class="container-fluid" style="height: 100%;">
+            <h3 style="text-align: left;color: white;font-weight: bold;">Top Série</h3>
+
+            <div class="row flex-nowrap col-md-12" style="height: 85%;">
+                <div class="col-1" *ngFor="let show of showTop" style="margin-right: 4px;padding-right: 0;">
+                    <div class="card card-block" data-id="{{show.id}}" style="height: 100%;width: 100%;border:0px solid black;background: transparent;">
+                        <img [ngClass]="(isLoadingShowTop==true)?'PosterImage posterLoading':'PosterImage posterLoaded'" src="{{show.images.poster}}" alt="" style="border-radius: 15px;">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="overflow: hidden;height: 26vh;position: relative;margin:20px 0;">
+        <div class="container-fluid" style="height: 100%;">
+            <h3 style="text-align: left;color: white;font-weight: bold;">Top Série Week</h3>
+
+            <div class="row flex-nowrap col-md-12" style="height: 85%;">
+                <div class="col-1" *ngFor="let show of showTop" style="margin-right: 4px;padding-right: 0;">
+                    <div class="card card-block" data-id="{{show.id}}" style="height: 100%;width: 100%;border:0px solid black;background: transparent;">
+                        <img [ngClass]="(isLoadingShowTop==true)?'PosterImage posterLoading':'PosterImage posterLoaded'" src="{{show.images.poster}}" alt="" style="border-radius: 15;">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="overflow: hidden;height: 26vh;position: relative;margin:20px 0;">
+        <div class="container-fluid" style="height: 100%;">
+            <h3 style="text-align: left;color: white;font-weight: bold;">Top Série Week</h3>
+
+            <div class="row flex-nowrap col-md-12" style="height: 85%;">
+                <div class="col-1" *ngFor="let show of showTopWeek" style="margin-right: 4px;padding-right: 0;">
+                    <div class="card card-block" data-id="{{show.id}}" style="height: 100%;width: 100%;border:0px solid black;background: transparent;">
+                        <img [ngClass]="(isLoadingShowTopWeek==true)?'PosterImage posterLoading':'PosterImage posterLoaded'" src="{{show.images.poster}}" alt="" style="border-radius: 15px;">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div style="overflow: hidden;height: 26vh;position: relative;margin:20px 0;">
+        <div class="container-fluid" style="height: 100%;">
+            <h3 style="text-align: left;color: white;font-weight: bold;padding-left: 15px;">Top Série</h3>
+
+            <div class="row flex-nowrap col-md-12" style="height: 85%;">
+                <div class="col-1" *ngFor="let show of showTop" style="margin-right: 4px;padding-right: 0;">
+                    <div class="card card-block" data-id="{{show.id}}" style="height: 100%;width: 100%;border:0px solid black;background: transparent;">
+                        <img [ngClass]="(isLoadingShowTop==true)?'PosterImage posterLoading':'PosterImage posterLoaded'" src="{{show.images.poster}}" alt="" style="border-radius: 15px;">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div style="overflow: hidden;height: 26vh;position: relative;margin:20px 0;">
+        <div class="container-fluid" style="height: 100%;">
+            <h3 style="text-align: left;">Top Série</h3>
+
+            <div class="row flex-nowrap col-md-12" style="height: 85%;">
+                <div class="col-1" *ngFor="let show of showTop" style="margin-right: 4px;padding-right: 0;">
+                    <div class="card card-block" data-id="{{show.id}}" style="height: 100%;width: 100%;border:0px solid black;background: transparent;">
+                        <img [ngClass]="(isLoadingShowTop==true)?'PosterImage posterLoading':'PosterImage posterLoaded'" src="{{show.images.poster}}" alt="" style="border-radius: 20px;">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

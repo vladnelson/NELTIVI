@@ -1,79 +1,54 @@
-<div style="overflow: auto;">
-    <div style="height: auto;">
-        <ngb-carousel #carousel [interval]="6000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)">
-            <ng-template ngbSlide *ngFor="let img of images; index as i">
-                <div class="carousel-caption" style="color: white;">
-                    <h3 style="color: white;">My slide {{i + 1}} title</h3>
-                </div>
-                <a href="https://www.google.fr/?q=Number+{{i+1}}" target="_blank" rel="nofollow noopener noreferrer">
-                    <div class="picsum-img-wrapper">
-                        <img [src]="img" alt="My image {{i + 1}} description">
-                    </div>
-                </a>
-            </ng-template>
-        </ngb-carousel>
-    </div>
+<div style="height: 100vh;width:100vw;overflow: hidden; ">
+    <div class="col-md-12 row" style="height:15vh;padding: 2% 0 0 5%;">
+        <div class="col-md-8" style="text-align: left;height: 100%;">
+            <img src="../../assets/Images/Logo/Logo_NTV.png" alt="" style="height: 100%;">
+        </div>
 
-
-    <div style="overflow: hidden;height: 26vh;position: relative;margin:20px 0;">
-        <span style="position: absolute;bottom: 0;top:0;left:0;width:4%;background: rgba(20, 20, 20, 0.2);z-index: 50;display: flex;padding:10px;">
-        <a style="align-self: center;font-size: 2.5vw;">
-            <svg class="bi bi-arrow-left-short" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"/>
-                <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
-            </svg>
-          </a>
-    </span>
-        <div class="container-fluid" style="height: 100%;">
-            <h3 style="text-align: left;">Top Série</h3>
-
-            <div class="row flex-nowrap" style="height: 85%;">
-                <div class="col-1" *ngFor="let show of showTop" style="margin-right: 4px;">
-                    <div class="card card-block" data-id="{{show.id}}" style="height: 100%;width: 13vw;border:0px solid black;">
-                        <img [ngClass]="(isLoadingShowTop==true)?'PosterImage posterLoading':'PosterImage posterLoaded'" src="{{show.images.poster}}" alt="">
-                    </div>
-                </div>
+        <div class="col-md-4">
+            <div class="col-md-12 row">
+                <div class="col-md-1"></div>
+                <button type="button" class="col-md-4 buttonNeltivi1">Login</button>
+                <div class="col-md-2"></div>
+                <button type="button" class="col-md-4 buttonNeltivi1">Sign Up</button>
+                <div class="col-md-1"></div>
             </div>
 
         </div>
-        <span style="position: absolute;top:0;bottom: 0;right: 0;width:4%;background: rgba(20, 20, 20, 0.2);z-index: 50;display: flex;padding:10px;">
-        <a style="align-self: center;font-size: 2.5vw;">
-            <svg class="bi bi-arrow-right-short" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"/>
-                <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"/>
-              </svg>
-        </a>
-    </span>
     </div>
 
-    <div style="overflow-x: hidden;height: 27vh;position: relative;margin:15px 0;">
-        <span style="position: absolute;bottom: 0;top:0;left:0;width:4%;background: rgba(20, 20, 20, 0.2);z-index: 50;display: flex;padding:10px;">
-        <a style="align-self: center;font-size: 2.5vw;">
-            <svg class="bi bi-arrow-left-short" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"/>
-                <path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
-            </svg>
-          </a>
-    </span>
-        <div class="container-fluid" style="height: 100%;">
-            <h3 style="text-align: left;">Top Série</h3>
-
-            <div class="row flex-nowrap" style="height: 85%;">
-                <div class="col-1" *ngFor="let show of showTopWeek" style="margin-right: 4px;">
-                    <div class="card card-block" data-id="{{show.id}}" style="height: 100%;width: 13vw;border:0px solid black;">
-                        <img [ngClass]="(isLoadingShowTopWeek==true)?'PosterImage posterLoading':'PosterImage posterLoaded'" src="{{show.images.poster}}" alt="">
-                    </div>
-                </div>
-            </div>
+    <div class="col-md-12 row" style="height: 60vh;padding: 2%;">
+        <div class="col-md-2">
 
         </div>
-        <span style="position: absolute;top:0;bottom: 0;right: 0;width:4%;background: rgba(20, 20, 20, 0.2);z-index: 50;display: flex;padding:10px;">
-        <a style="align-self: center;font-size: 2.5vw;">
-            <svg class="bi bi-arrow-right-short" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M8.146 4.646a.5.5 0 01.708 0l3 3a.5.5 0 010 .708l-3 3a.5.5 0 01-.708-.708L10.793 8 8.146 5.354a.5.5 0 010-.708z" clip-rule="evenodd"/>
-                <path fill-rule="evenodd" d="M4 8a.5.5 0 01.5-.5H11a.5.5 0 010 1H4.5A.5.5 0 014 8z" clip-rule="evenodd"/>
-              </svg>
-        </a>
-    </span>
+        <div class="col-md-4" style="vertical-align: middle;color: white;padding: 0px 120px;text-align: left;margin: auto;">
+            <h1 style="color: white;font-weight: bold;font-size: 56px;white-space: normal;line-height:110%;">Bienvenue sur NELTIVI</h1>
+
+            <div style="margin:20px 0;line-height:140%;font-size: 17px;">
+                La plateforme qui vous facilite la vie et vous donne accès à des centaines de milliers de films, séries, documentaires, dessin animés etc... En un seul compte, en une seule connexion !
+
+            </div>
+
+            <div class="col-md-12 row" style="padding: 3% 0;">
+                <div class="col-md-1"></div>
+                <button type="button" class="col-md-5 buttonNeltivi2" style="color:rgb(26,38,114);">
+                    Start here
+                    </button>
+                <div class="col-md-1 "></div>
+                <button type="button" class="col-md-5 buttonNeltivi2" style="color:#9240b2;">
+                        plus d'infos <a></a>
+                        </button>
+            </div>
+        </div>
+
+        <div class=" col-md-4 " style="height: 100%; ">
+            <img src="../../assets/Images/illustration ciné@3x-8.png " alt=" " style="height: 100%; ">
+        </div>
+        <div class="col-md-2 ">
+
+        </div>
+    </div>
+
+    <div style="position: fixed;bottom: 0;left: 0;right: 0;background: white;height: 10vh;border-radius: 500% 500% 0 0; ">
+
     </div>
 </div>

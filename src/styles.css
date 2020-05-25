@@ -254,8 +254,7 @@ img {
 .form-top {
     overflow: hidden;
     padding: 0 25px 15px 25px;
-    background: #444;
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(255, 255, 255, 1);
     -moz-border-radius: 4px 4px 0 0;
     -webkit-border-radius: 4px 4px 0 0;
     border-radius: 4px 4px 0 0;
@@ -263,19 +262,20 @@ img {
 }
 
 .form-top-left {
-    float: left;
-    width: 75%;
+    text-align: center;
+    width: 100%;
     padding-top: 25px;
 }
 
 .form-top-left h3 {
     margin-top: 0;
-    color: #fff;
+    color: #000;
+    font-weight: bold;
 }
 
 .form-top-left p {
     opacity: 0.8;
-    color: #fff;
+    color: #000;
 }
 
 .form-top-right {
@@ -283,7 +283,7 @@ img {
     width: 25%;
     padding-top: 5px;
     font-size: 66px;
-    color: #fff;
+    color: #000;
     line-height: 100px;
     text-align: right;
     opacity: 0.3;
@@ -291,8 +291,7 @@ img {
 
 .form-bottom {
     padding: 25px 25px 30px 25px;
-    background: #444;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 1);
     -moz-border-radius: 0 0 4px 4px;
     -webkit-border-radius: 0 0 4px 4px;
     border-radius: 0 0 4px 4px;
@@ -316,7 +315,7 @@ img {
 }
 
 .social-login h3 {
-    color: #fff;
+    color: #000;
 }
 
 .social-login-buttons {
@@ -369,7 +368,7 @@ textarea.form-control {
     padding: 0 20px;
     vertical-align: middle;
     background: #fff;
-    border: 3px solid #fff;
+    border: 1px solid #888;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 300;

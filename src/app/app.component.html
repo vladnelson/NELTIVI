@@ -1,5 +1,5 @@
 <!-- main app container -->
-<div class="">
+<div class="" style="background: linear-gradient(180deg, rgb(26,38,114) 0%, #9240b2 70%);">
     <router-outlet></router-outlet>
 </div>
 
@@ -7,20 +7,14 @@
     <nav class="dock">
         <ul>
             <li>
-                <span i18n>Search</span>
-                <a href=""><img src="../assets/search.png" /></a>
-                <!-- <h2><a  rel="noopener" href="" >Search</a></h2> -->
-            </li>
-
-            <li>
                 <span i18n>Series</span>
-                <a href="series"><img src="../assets/videocamera.png" /></a>
+                <a href="series"><img src="../assets/Images/Menu/monitor (1).png" /></a>
                 <!-- <h2><a  rel="noopener" href="series" i18n>Series</a></h2> -->
             </li>
 
             <li>
                 <span i18n>Films</span>
-                <a href="films"><img src="../assets/film.png" /></a>
+                <a href="films"><img src="../assets/Images/Menu/music-and-multimedia.png" /></a>
                 <!-- <h2><a rel="noopener" href="films" i18n>Films</a></h2> -->
             </li>
 
@@ -50,7 +44,7 @@
 
             <li *ngIf="!_currentUserAllRoles">
                 <span i18n>Connection</span>
-                <a href="connect"><img src="../assets/loginRegister.png" /></a>
+                <a href="connect"><img style="background:#9240b2;" src="../assets/Images/Menu/signs.png" /></a>
                 <!-- <h2><a  rel="noopener" href="connect" i18n>Connection</a></h2> -->
             </li>
         </ul>

@@ -11,6 +11,9 @@ import { appRoutingModule } from './app.routing';
 import { ConnectionRegisterComponent } from './connection/connection-register/connection-register.component';
 import { ConnectionLoginComponent } from './connection/connection-login/connection-login.component';
 import { NgbModule, NgbSlide, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+import { HomeSerieComponent } from './series/home-serie/home-serie.component';
+import { SerieComponent } from './series/serie/serie.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { NgbModule, NgbSlide, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
     ConnectionComponent,
     HomeComponent,
     ConnectionRegisterComponent,
-    ConnectionLoginComponent
+    ConnectionLoginComponent,
+    HomeSerieComponent,
+    SerieComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -22,7 +22,7 @@ export class ShowService {
       })
     };
 
-    return this.http.get<ShowVm>(this.Url + '/', reqHeader);
+    return this.http.get<ShowVm>(this.Url + '/TopShow', reqHeader);
   }
 
   GetTopShowWeek() {
@@ -35,7 +35,7 @@ export class ShowService {
       })
     };
 
-    return this.http.get<ShowVm>(this.Url + '/', reqHeader);
+    return this.http.get<ShowVm>(this.Url + '/TopShow', reqHeader);
 
   }
 

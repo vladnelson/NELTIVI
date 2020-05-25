@@ -3,31 +3,37 @@
 .dock-container {
     position: fixed;
     bottom: 0;
-    text-align: center;
-    right: 20%;
-    left: 20%;
-    width: 60%;
+    right: 35%;
+    left: 35%;
+    width: 30%;
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px 10px 0 0;
+    border-radius: 15px 15px 0 0;
+    background: #9240b2;
+    height: auto;
 }
 
 .dock-container li {
     list-style-type: none;
     display: inline-block;
     position: relative;
+    /* margin: 0 5%; */
+    float: left;
+    padding: 0 4%;
 }
 
 .dock-container li img {
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     -webkit-box-reflect: below 2px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.7, transparent), to(rgba(255, 255, 255, .5)));
     -webkit-transition: all 0.3s;
     -webkit-transform-origin: 50% 100%;
+    background: #9240b2;
+    border-radius: 5px;
 }
 
 .dock-container li:hover img {
     -webkit-transform: scale(2);
-    margin: 0 2em;
+    margin: 0 1%;
 }
 
 .dock-container li:hover+li img,
@@ -42,12 +48,12 @@
     bottom: 140px;
     left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(255, 255, 255);
     padding: 4px 0;
-    border-radius: 12px;
+    border-radius: 25px;
 }
 
 .dock-container li:hover span {
     display: block;
-    color: #fff;
+    color: rgba(0, 0, 0, 0.75);
 }
