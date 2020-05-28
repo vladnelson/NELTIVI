@@ -1,9 +1,8 @@
+import { DemoVisual } from './demoVisual';
 import { ImagesShow } from './imagesShow';
 import { Seasons } from './season';
-import { DemoVisual } from './demoVisual';
-import { FilmOrShow } from './film-or-show';
 
-export class Show {
+export class FilmOrShow {
     id: number;
     title: string;
     imdb_id: string;
@@ -19,4 +18,10 @@ export class Show {
     episodes: string;
     images: ImagesShow;
     seasons_details: Seasons[];
+
+    synopsis: string;
+    genres: Array<string>;
+    poster: string;
+    backdrop: string;
+    production_year: string;
 }
