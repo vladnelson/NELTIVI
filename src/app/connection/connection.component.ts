@@ -16,10 +16,10 @@ export class ConnectionComponent implements OnInit {
   returnUrl: string;
   error = '';
   constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService
+    public  formBuilder: FormBuilder,
+    public route: ActivatedRoute,
+    public router: Router,
+    public authenticationService: AuthenticationService
   ) {
     if (this.authenticationService.currrentUserValue) {
       this.router.navigate(['/']);

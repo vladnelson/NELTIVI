@@ -12,8 +12,8 @@ export class HomeSerieComponent implements OnInit {
   private isLoadingShowTop = true;
   private isLoadingShowTopWeek = true;
 
-  private showTop: Array<Show>;
-  private showTopWeek: Array<Show>;
+  public showTop: Array<Show>;
+  public showTopWeek: Array<Show>;
 
   images = [62, 83, 466, 965, 982, 1043, 738].map((n) => `https://pictures.betaseries.com/fonds/show/1161_1521643782.jpg`);
 

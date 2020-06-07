@@ -14,6 +14,8 @@ import { NgbModule, NgbSlide, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 import { HomeSerieComponent } from './series/home-serie/home-serie.component';
 import { SerieComponent } from './series/serie/serie.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeFilmsComponent } from './films/home-films/home-films.component';
+import { FilmComponent } from './films/film/film.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ConnectionLoginComponent,
     HomeSerieComponent,
     SerieComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeFilmsComponent,
+    FilmComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
-<div style="overflow: auto;height: 100vh;padding:0 15px 10% 15px;">
+<div style="overflow: auto;height: 100vh;padding:5vh 15px 10% 15px;">
     <div style="height: auto;">
-        <ngb-carousel #carousel [interval]="6000" [pauseOnHover]="pauseOnHover" (slide)="onSlide($event)">
+        <ngb-carousel #carousel [interval]="6000" [pauseOnHover]="pauseOnHover"> //(slide)="onSlide($event)"
             <ng-template ngbSlide *ngFor="let img of images; index as i">
                 <div class="carousel-caption" style="color: white;">
                     <h3 style="color: white;">My slide {{i + 1}} title</h3>
@@ -52,7 +52,7 @@
             <div class="row flex-nowrap col-md-12" style="height: 85%;">
                 <div class="col-1" *ngFor="let show of showTopWeek" style="margin-right: 4px;padding-right: 0;">
                     <div class="card card-block" data-id="{{show.id}}" style="height: 100%;width: 100%;border:0px solid black;background: transparent;">
-                        <img [ngClass]="(isLoadingShowTopWeek==true)?'PosterImage posterLoading':'PosterImage posterLoaded'" src="{{show.images.poster}}" alt="" style="border-radius: 15px;">
+                        <img [ngClass]="(isLoadingShowTopWeek==true)?'PosterImage posterLoading':'PosterImage posterLoaded'" src="{{show.images.poster}}" alt="" />
                     </div>
                 </div>
             </div>

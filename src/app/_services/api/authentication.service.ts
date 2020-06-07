@@ -43,7 +43,7 @@ export class AuthenticationService {
     console.log(password);
     const reqHeader = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
-      'No-Auth': 'True', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': '*'
+      'No-Auth': 'True'
     });
 
 

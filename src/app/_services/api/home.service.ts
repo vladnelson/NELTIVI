@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FilmAndShowVm } from 'src/app/_viewmodels';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,6 @@ export class HomeService {
   Search(WordSearch: string) {
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
-    return this.http.post<ShowVm>(this.Url + '/SearchFilmOrShow', WordSearch, httpOptions);
+    return this.http.get<FilmAndShowVm>(this.Url + '/SearchFilmOrShowT?query=' + WordSearch, httpOptions);
   }
 }

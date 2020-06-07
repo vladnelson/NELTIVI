@@ -22,6 +22,7 @@ export class FilmOrShow {
     synopsis: string;
     genres: Array<string>;
     poster: string;
+    poster_path: string;
     backdrop: string;
     production_year: string;
 }

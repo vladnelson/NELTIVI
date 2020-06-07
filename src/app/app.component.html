@@ -1,5 +1,62 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: rgb(26,38,114);">
+    <a class="navbar-brand" href="/" style="padding-left:5%;"><img src="../assets/Images/Logo/Logo_NTV.png" alt="" height="40"></a>
+    <button class="navbar-toggler hidden-sm-up" type="button" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
+        <!-- <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown" ngbDropdown>
+                <a class="nav-link dropdown-toggle" id="id01" href="#" ngbDropdownToggle>Files</a>
+                <div class="dropdown-menu" aria-labelledby="id01" ngbDropdownMenu>
+                    <a class="dropdown-item" href="#">HTML</a>
+                    <a class="dropdown-item" href="#">TS</a>
+                    <a class="dropdown-item" href="#">JS</a>
+                </div>
+            </li>
+        </ul> -->
+        <div>
+            <input class="BtnSearchNELTIVI" type="text" name="" placeholder="Rechercher vos films préférés" (input)="Search($event);">
+            <div #BodySearch style="display:none;position: absolute;background:black;color:white;height: 90vh;width: 80vw;border-radius:0 30px;">
+                <div style="height: 50%;min-height: 50%;">
+                    <h2>FILMS</h2>
+                    <div class="row flex-nowrap col-md-12" style="height: 70%">
+                        <div class="col-1" *ngFor="let film of MoviesQuery" style="margin-right: 4px;padding-right: 0;cursor: pointer;margin-right: 20px;">
+                            <div class="card card-block" data-id="{{film.id}}" style="height: 100%;width: 100%;border:0px solid black;background: transparent;">
+                                <img src="{{film.poster_path}}" alt="" style="border-radius: 15px;">
+                                <h5>{{film.title}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="height: 50%;min-height: 50%;">
+                    <h2>Series</h2>
+                    <div class="row flex-nowrap col-md-12" style="height:70%">
+                        <div class="col-1" *ngFor="let serie of SerieQuery" style="margin-right: 4px;padding-right: 0;cursor: pointer;margin-right: 20px;">
+                            <div class="card card-block" data-id="{{serie.id}}" style="height: 100%;width: 100%;border:0px solid black;background: transparent;">
+                                <img src="{{serie.poster_path}}" alt="" style="border-radius: 15px;">
+
+                                <h5>{{serie.name}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="col-md-12 row">
+            <div class="col-md-1"></div>
+            <button type="button" class="col-md-4 buttonNeltivi1">Login</button>
+            <button type="button" class="col-md-4 buttonNeltivi1">Sign Up</button>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</nav>
+
 <!-- main app container -->
-<div class="" style="background: linear-gradient(180deg, rgb(26,38,114) 0%, #9240b2 70%);">
+<div class="" style="background: linear-gradient(180deg,  #9240b2 0%,rgb(26,38,114) 80%);">
     <router-outlet></router-outlet>
 </div>
 

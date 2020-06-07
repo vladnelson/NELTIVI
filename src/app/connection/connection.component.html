@@ -1,12 +1,18 @@
-<div style="height:100vh ;background: url('../../assets/Images/Fond/1154.jpg') no-repeat center/100%;">
+<div style="height:100vh ;background: url('../../assets/Images/Fond/Background-transparent.png') no-repeat center/100%;">
     <div class="col-md-12 row" style="height:15vh;padding: 2% 0 0 5%;">
-        <div class="col-md-12" style="text-align: left;height: 100%;">
-            <img src="../../assets/Images/Logo/Logo_NTV.png" alt="" style="height: 100%;">
-        </div>
 
     </div>
     <div class="row col-md-12">
         <div class="col-md-2"></div>
+        <div class="col-md-3">
+
+            <app-connection-register [formBuilder]="formBuilder" [authenticationService]="authenticationService" [returnUrl]="returnUrl" [router]="router"></app-connection-register>
+
+        </div>
+
+
+        <div class="col-md-2"></div>
+
         <div class="col-md-3">
 
             <app-connection-login [formBuilder]="formBuilder" [authenticationService]="authenticationService" [returnUrl]="returnUrl" [router]="router"></app-connection-login>
@@ -14,13 +20,7 @@
 
         </div>
 
-        <div class="col-md-2"></div>
 
-        <div class="col-md-3">
-
-            <app-connection-register [formBuilder]="formBuilder" [authenticationService]="authenticationService" [returnUrl]="returnUrl" [router]="router"></app-connection-register>
-
-        </div>
         <div class="col-md-2"></div>
     </div>
 </div>
