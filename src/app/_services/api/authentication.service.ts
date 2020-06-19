@@ -43,7 +43,9 @@ export class AuthenticationService {
     console.log(password);
     const reqHeader = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
-      'No-Auth': 'True'
+      'No-Auth': 'True',
+      'Access-Control-Allow-Origin': 'http://localhost:4200',
+      'Access-Control-Allow-Methods': '*'
     });
 
 

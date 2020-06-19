@@ -20,6 +20,7 @@ export class AppComponent {
   url_images_Pref_Movies = 'http://localhost:1836/Content/Images/Movies';
   public SerieQuery: Array<FilmOrShow>;
   public MoviesQuery: Array<FilmOrShow>;
+  isNavbarCollapsed = false;
 
   constructor(private router: Router,
     private authenticationService: AuthenticationService,

@@ -5,6 +5,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './_helper/auth.guard';
 import { HomeSerieComponent } from './series/home-serie/home-serie.component';
 import { HomeFilmsComponent } from './films/home-films/home-films.component';
+import { SerieComponent } from './series/serie/serie.component';
+import { FilmComponent } from './films/film/film.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -14,6 +16,8 @@ const routes: Routes = [
 
     { path: 'series', component: HomeSerieComponent },
     { path: 'films', component: HomeFilmsComponent },
+    { path: 'serie/:serieId', component: SerieComponent },
+    { path: 'film/:filmId', component: FilmComponent },
 
     { path: '**', component: NotFoundComponent }
 ];

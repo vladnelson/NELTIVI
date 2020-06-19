@@ -249,6 +249,7 @@ img {
 
 .form-box {
     margin-top: 70px;
+    border: 1px solid black;
 }
 
 .form-top {

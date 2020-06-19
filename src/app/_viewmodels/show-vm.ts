@@ -1,6 +1,6 @@
-import { Show } from '../_models';
+import { FilmOrShow } from '../_models/film-or-show';
 
 export class ShowVm {
-   shows: Show[];
+   shows: FilmOrShow[];
    locale: string;
 }
