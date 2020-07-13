@@ -5,6 +5,7 @@ import { ShowService } from 'src/app/_services/api/show.service';
 import { FilmOrShow } from 'src/app/_models/film-or-show';
 import { Creator } from 'src/app/_models/creator';
 import { Platform } from 'src/app/_models/platform';
+import { DemoVisual } from 'src/app/_models/demoVisual';
 
 @Component({
   selector: 'app-serie',
@@ -13,24 +14,23 @@ import { Platform } from 'src/app/_models/platform';
 })
 export class SerieComponent implements OnInit, AfterViewInit {
   @ViewChild('headerSerieDescription') headerDiv: ElementRef;
+  @ViewChild('frameDemonstrationShow') frameDemonstrationShow: ElementRef;
   private sub: Subscription;
   private serieId: number;
   url_images_Pref_Shows = 'http://localhost:1836/Content/Images/Shows';
-  showCurrent: FilmOrShow;
+  showCurrent = new FilmOrShow();
 
-  director = 'Inconnu';
-  coDirector = 'Inconnu';
-  networks = 'Inconnu';
-  origins = 'Inconnu';
+
   genres = 'Inconnu';
 
   urlImagesBack = this.url_images_Pref_Shows + '/gpJZiTvklr5JN0mzpQwl99peQD7.jpg';
   urlImagesFront = this.url_images_Pref_Shows + '/gpJZiTvklr5JN0mzpQwl99peQD7.jpg';
-
+  urlvideosDemonstrationShow = "https://videos.cineserie.com/player/index/112129/3/21";
   constructor(
     private showService: ShowService,
     private route: ActivatedRoute,
     private router: Router) {
+
   }
   ngAfterViewInit(): void {
     console.log(this.headerDiv.nativeElement.innerHTML);
@@ -38,78 +38,73 @@ export class SerieComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
 
-
-
     this.sub = this.route.params.subscribe(params => {
       this.serieId = params['serieId'];
 
       this.showService.GetShow(this.serieId)
         .subscribe((Response) => {
           console.log(Response);
-          this.showCurrent = Response;
-          Response.backdrop_path = this.url_images_Pref_Shows + Response.backdrop_path;
-          Response.poster_path = this.url_images_Pref_Shows + Response.poster_path;
-          this.headerDiv.nativeElement.style.background = ' url("' + Response.backdrop_path + '") no-repeat  40%/100%';
-          this.headerDiv.nativeElement.style.minHeight = '40vh';
+          this.showCurrent = Response.shows[0];
+          console.log(this.showCurrent);
+          this.showCurrent.backdrop_path = this.showCurrent.images.banner;
+          this.showCurrent.poster_path = this.showCurrent.images.poster;
+          this.headerDiv.nativeElement.style.background = ' url("' + this.showCurrent.images.banner + '") no-repeat  40%/100%';
+          this.headerDiv.nativeElement.style.minHeight = '50vh';
+          if (this.showCurrent.VisualDemos.length > 0) {
+            let visualDemos = this.showCurrent.VisualDemos;
+            for (let index = 0; index < visualDemos.length; index++) {
+              const element = visualDemos[index];
+              this.GetVideosDemontration(element);
+            }
 
-          this.LoadShowInView(this.showCurrent);
+          }
 
-          console.log(Response);
         },
           (error) => console.log(error));
     });
   }
 
-  LoadShowInView(Show: FilmOrShow) {
+  GetVideosDemontration(element: DemoVisual) {
+    if (element.title == this.showCurrent.title) {
+      let bandeAnnonce = element.videos["Bande Annonce"];
+      let Teaser = element.videos["Teaser"];
+      let Extrai = element.videos["Extrai"];
 
-    // director = 'Inconnu';
-    // coDirector = 'Inconnu';
-    // networks = 'Inconnu';
-    // origins = 'Inconnu';
-    // genres = 'Inconnu';
-    let counter = 0;
-    this.genres = '';
-    Show.genres.forEach(genre => {
-      counter++;
-      if (counter !== Show.networks.length) {
-        this.genres = this.genres + genre.name + ', ';
-      } else {
-        this.genres = this.genres + genre.name;
+      //==============================================================================
+      // Sélection de la vidéo de démonstration à montrer.
+      //==============================================================================
+
+      if (Teaser != null) {
+        if (Teaser["en"] != null && Teaser["fr"] == null) {
+          this.frameDemonstrationShow.nativeElement.src = Teaser["en"][0];
+          this.frameDemonstrationShow.nativeElement.style.display = "";
+        } else if (Teaser["fr"] != null) {
+          this.frameDemonstrationShow.nativeElement.src = Teaser["fr"][0];
+          this.frameDemonstrationShow.nativeElement.style.display = "";
+        }
       }
-    });
 
-    counter = 0;
-    this.origins = '';
-    Show.origin_country.forEach(country => {
-      if (counter !== Show.networks.length) {
-        this.origins = this.origins + country + ', ';
-      } else {
-        this.origins = this.origins + country;
+      if (Extrai != null) {
+        if (Extrai["en"] != null && Extrai["fr"] == null) {
+          this.frameDemonstrationShow.nativeElement.src = Extrai["en"][0];
+          this.frameDemonstrationShow.nativeElement.style.display = "";
+        } else if (Extrai["fr"] != null) {
+          this.frameDemonstrationShow.nativeElement.src = Extrai["fr"][0];
+          this.frameDemonstrationShow.nativeElement.style.display = "";
+        }
       }
-    });
 
-    counter = 0;
-    this.networks = '';
-    Show.networks.forEach(platforme => {
-      if (counter !== Show.networks.length) {
-        this.networks = this.networks + platforme.name + ', ';
-      } else {
-        this.networks = this.networks + platforme.name;
+      if (bandeAnnonce != null) {
+        if (bandeAnnonce["en"] != null && bandeAnnonce["fr"] == null) {
+          this.frameDemonstrationShow.nativeElement.src = bandeAnnonce["en"][0];
+          this.frameDemonstrationShow.nativeElement.style.display = "";
+        } else if (bandeAnnonce["fr"] != null) {
+          this.frameDemonstrationShow.nativeElement.src = bandeAnnonce["fr"][0];
+          this.frameDemonstrationShow.nativeElement.style.display = "";
+        }
       }
-    });
 
-    counter = 0;
-
-    Show.created_by.forEach(creator => {
-      if (counter === 0) {
-        this.director = '';
-        this.director = this.director + creator.name;
-      } else if (counter === 1) {
-        this.coDirector = '';
-        this.coDirector = this.coDirector + creator.name;
-      }
-    });
-
+    }
   }
 
 }

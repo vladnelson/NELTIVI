@@ -26,6 +26,7 @@ export class AppComponent {
     private authenticationService: AuthenticationService,
     private homeService: HomeService) {
     this.authenticationService.currentUser.subscribe(x => this._currentUserAllRoles = x);
+    console.log(this._currentUserAllRoles);
 
   }
 
@@ -39,12 +40,6 @@ export class AppComponent {
           const tempsArraySerie = new Array<FilmOrShow>();
           const tempsArrayMovies = new Array<FilmOrShow>();
 
-          console.log(Response);
-          console.log(Response.Shows);
-          console.log(Response.Movies);
-
-          console.log(Response.query);
-          console.log((event.target as HTMLInputElement).value);
           const valueInputSearchBefore = (event.target as HTMLInputElement).value;
           if (valueInputSearchBefore === Response.query) {
             this.SerieQuery = new Array<FilmOrShow>();
@@ -69,9 +64,7 @@ export class AppComponent {
             }
           }
 
-          console.log('Avant affichage');
-          console.log(Response.query);
-          console.log((event.target as HTMLInputElement).value);
+
           const valueInputSearch = (event.target as HTMLInputElement).value;
 
           if (tempsArraySerie.length > 0) {
@@ -112,7 +105,7 @@ export class AppComponent {
   }
 
   logout($event) {
-    console.log('Se deconnecter');
+  
     this.authenticationService.logout();
     this.router.navigate(['/connect']);
   }

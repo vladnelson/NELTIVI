@@ -1,11 +1,15 @@
 /* CSS pour la navigation */
 
+.dropdown-item{
+    cursor: pointer;
+}
+
 .dock-container {
     position: fixed;
     bottom: 0;
-    right: 35%;
-    left: 35%;
-    width: 30%;
+    right: 30%;
+    left: 30%;
+    width: 35%;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 15px 15px 0 0;
     background: #9240b2;

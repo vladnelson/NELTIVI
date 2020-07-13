@@ -50,7 +50,7 @@ export class ShowService {
       })
     };
 
-    return this.http.get<FilmOrShow>(this.Url + `/Show?SerieId=${Id}`, reqHeader);
+    return this.http.get<ShowVm>(this.Url + `/Show?ShowId=${Id}`, reqHeader);
   }
 
   GetLastVideosShow() {

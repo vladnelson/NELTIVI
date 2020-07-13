@@ -40,7 +40,8 @@ export class HomeSerieComponent implements OnInit {
         console.log(Response);
         const shows = Response.shows;
         for (let index = 0; index < shows.length; index++) {
-          shows[index].poster_path = this.url_images_Pref_Shows + shows[index].poster_path;
+
+          shows[index].poster_path = shows[index].images.poster;
         }
         this.isLoadingShowTop = false;
         this.showTop = Response.shows;
@@ -54,7 +55,8 @@ export class HomeSerieComponent implements OnInit {
         console.log(Response);
         const shows = Response.shows;
         for (let index = 0; index < shows.length; index++) {
-          shows[index].poster_path = this.url_images_Pref_Shows + shows[index].poster_path;
+
+          shows[index].poster_path = shows[index].images.poster;
         }
         this.isLoadingShowTopWeek = false;
         this.showTopWeek = Response.shows;
@@ -76,7 +78,9 @@ export class HomeSerieComponent implements OnInit {
       const itemShow = new FilmOrShow();
       (itemShow.images = new ImagesShow()).poster = '../../assets/Images/Loading/Eclipse-1s-200px Loading.gif';
       this.showTop.push(itemShow);
-      this.showTopWeek.push(itemShow);
+      const itemShowWeek = new FilmOrShow();
+      (itemShowWeek.images = new ImagesShow()).poster = '../../assets/Images/Loading/Eclipse-1s-200px Loading.gif';
+      this.showTopWeek.push(itemShowWeek);
     }
   }
 
@@ -101,28 +105,49 @@ export class HomeSerieComponent implements OnInit {
 
   DiscoverShow(event: Event) {
     const divShow = (event.target as HTMLInputElement).parentElement.parentElement;
-    console.log(divShow.dataset);
-    console.log(divShow.dataset.idshow);
     const id = divShow.dataset.idshow;
-    //this.router.navigate([`./serie/${id}`]);
+    if (id != null || id != undefined) {
+      this.router.navigate([`./serie/${id}`]);
+    }
   }
 
+  /**
+   * Visualisation des détails d'une série.
+   * @param event l'element ou l'évenement s'est produit.
+   */
   ShowsDetail(event: Event) {
-    console.log('on blur enter');
     const divShow = event.target as HTMLInputElement;
-    console.log(divShow.style.minWidth);
-    console.log(divShow.style.width);
-    divShow.style.minWidth = '500px';
-    divShow.style.width = '500px';
+    let imageShow = divShow.children[0] as HTMLInputElement;
+    let detailShow = divShow.children[1] as HTMLInputElement;
+
+    divShow.style.minWidth = '600px';
+    divShow.style.width = '600px';
+
+
+    divShow.classList.remove("col-1");
+    divShow.classList.add("col-3");
+    imageShow.classList.remove("col-md-12");
+    imageShow.classList.add("col-md-3");
+    detailShow.style.display = "";
   }
 
+  /**
+   * Restauration des valeurs par défaut pour l'affichage des séries.
+   * @param event l'element ou l'évenement s'est produit.
+   */
   ShowsDetailLeave(event: Event) {
-    console.log('on blur');
     const divShow = event.target as HTMLInputElement;
-    console.log(divShow.style.minWidth);
-    console.log(divShow.style.width);
+    let imageShow = divShow.children[0] as HTMLInputElement;
+    let detailShow = divShow.children[1] as HTMLInputElement;
+
     divShow.style.minWidth = '';
     divShow.style.width = '';
+
+    divShow.classList.remove("col-3");
+    divShow.classList.add("col-1");
+    imageShow.classList.remove("col-md-3");
+    imageShow.classList.add("col-md-12");
+    detailShow.style.display = "none";
   }
 
 }

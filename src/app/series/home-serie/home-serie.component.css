@@ -17,3 +17,39 @@
     max-height: 40%;
     margin: auto;
 }
+
+.weigthShows{
+    overflow: hidden;
+    height: 26vh;
+    position: relative;
+    margin:50px 0;
+}
+
+.weigthShows h3{
+    text-align: left;
+    color: white;
+    font-weight: bold;
+}
+
+.placeListOfShow{
+    margin-right: 4px;
+    padding-right: 0;
+    cursor: pointer;
+    transition-duration: 4s
+}
+
+.placeimg {
+    height: 100%;
+    width: 100%;
+    border:0px solid black;
+    background: transparent;
+}
+
+.placeimg img{
+    border-radius: 15px;
+}
+
+.detailShow{
+    text-align: justify;
+    line-height: normal;
+}

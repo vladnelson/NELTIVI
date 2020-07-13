@@ -21,6 +21,7 @@ export class FilmOrShow {
     status: string;
     seasons: string;
     networks: Platform[];
+    network: string;
     creation: string;
     description: string;
     episodes: string;

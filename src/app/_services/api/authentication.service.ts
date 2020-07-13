@@ -17,8 +17,6 @@ export class AuthenticationService {
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
-      'Access-Control-Allow-Origi': '*',
-      'Access-Control-Allow-Methods': '*'
     })
   };
 
@@ -26,6 +24,16 @@ export class AuthenticationService {
     this.currentUserSubject = new BehaviorSubject<Users>(JSON.parse(localStorage.getItem(this.CURRENT_USER)));
     this.currentUser = this.currentUserSubject.asObservable();
     this.Url = 'http://localhost:1836/';
+
+    let currentuser: any = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(currentuser);
+
+    let userConnected = new Users();
+    if (currentuser) {
+      userConnected.email = currentuser.userName;
+      userConnected.token = currentuser.access_token;
+      this.currentUserSubject.next(userConnected);
+    }
   }
 
   public get currrentUserValue(): Users {
@@ -38,14 +46,10 @@ export class AuthenticationService {
    * @param password
    */
   login(email: string, password: string) {
-    console.log('je vais lancer');
-    console.log(email);
-    console.log(password);
+
     const reqHeader = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
-      'No-Auth': 'True',
-      'Access-Control-Allow-Origin': 'http://localhost:4200',
-      'Access-Control-Allow-Methods': '*'
+
     });
 
 
@@ -53,9 +57,14 @@ export class AuthenticationService {
     return this.http.post<any>(this.Url + `token`, userData, { headers: reqHeader })
       .pipe(map(user => {
         console.log(user);
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        // sauvegarde du token  et connection de l'utilisateur.
         localStorage.setItem('currentUser', JSON.stringify(user));
-        this.currentUserSubject.next(user);
+        let userConnected = new Users();
+
+        userConnected.email = user.userName;
+        userConnected.token = user.access_token;
+
+        this.currentUserSubject.next(userConnected);
         return user;
       }));
   }
