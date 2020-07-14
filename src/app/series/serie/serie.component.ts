@@ -50,13 +50,14 @@ export class SerieComponent implements OnInit, AfterViewInit {
           this.showCurrent.poster_path = this.showCurrent.images.poster;
           this.headerDiv.nativeElement.style.background = ' url("' + this.showCurrent.images.banner + '") no-repeat  40%/100%';
           this.headerDiv.nativeElement.style.minHeight = '50vh';
-          if (this.showCurrent.VisualDemos.length > 0) {
-            let visualDemos = this.showCurrent.VisualDemos;
-            for (let index = 0; index < visualDemos.length; index++) {
-              const element = visualDemos[index];
-              this.GetVideosDemontration(element);
+          if (this.showCurrent.VisualDemos != null) {
+            if (this.showCurrent.VisualDemos.length > 0) {
+              let visualDemos = this.showCurrent.VisualDemos;
+              for (let index = 0; index < visualDemos.length; index++) {
+                const element = visualDemos[index];
+                this.GetVideosDemontration(element);
+              }
             }
-
           }
 
         },
@@ -66,44 +67,47 @@ export class SerieComponent implements OnInit, AfterViewInit {
 
   GetVideosDemontration(element: DemoVisual) {
     if (element.title == this.showCurrent.title) {
-      let bandeAnnonce = element.videos["Bande Annonce"];
-      let Teaser = element.videos["Teaser"];
-      let Extrai = element.videos["Extrai"];
+      if (element.videos != null) {
+        let bandeAnnonce = element.videos["Bande Annonce"];
+        let Teaser = element.videos["Teaser"];
+        let Extrai = element.videos["Extrai"];
 
-      //==============================================================================
-      // Sélection de la vidéo de démonstration à montrer.
-      //==============================================================================
+        //==============================================================================
+        // Sélection de la vidéo de démonstration à montrer.
+        //==============================================================================
 
-      if (Teaser != null) {
-        if (Teaser["en"] != null && Teaser["fr"] == null) {
-          this.frameDemonstrationShow.nativeElement.src = Teaser["en"][0];
-          this.frameDemonstrationShow.nativeElement.style.display = "";
-        } else if (Teaser["fr"] != null) {
-          this.frameDemonstrationShow.nativeElement.src = Teaser["fr"][0];
-          this.frameDemonstrationShow.nativeElement.style.display = "";
+        if (Teaser != null) {
+          if (Teaser["en"] != null && Teaser["fr"] == null) {
+            this.frameDemonstrationShow.nativeElement.src = Teaser["en"][0];
+            this.frameDemonstrationShow.nativeElement.style.display = "";
+          } else if (Teaser["fr"] != null) {
+            this.frameDemonstrationShow.nativeElement.src = Teaser["fr"][0];
+            this.frameDemonstrationShow.nativeElement.style.display = "";
+          }
         }
-      }
 
-      if (Extrai != null) {
-        if (Extrai["en"] != null && Extrai["fr"] == null) {
-          this.frameDemonstrationShow.nativeElement.src = Extrai["en"][0];
-          this.frameDemonstrationShow.nativeElement.style.display = "";
-        } else if (Extrai["fr"] != null) {
-          this.frameDemonstrationShow.nativeElement.src = Extrai["fr"][0];
-          this.frameDemonstrationShow.nativeElement.style.display = "";
+        if (Extrai != null) {
+          if (Extrai["en"] != null && Extrai["fr"] == null) {
+            this.frameDemonstrationShow.nativeElement.src = Extrai["en"][0];
+            this.frameDemonstrationShow.nativeElement.style.display = "";
+          } else if (Extrai["fr"] != null) {
+            this.frameDemonstrationShow.nativeElement.src = Extrai["fr"][0];
+            this.frameDemonstrationShow.nativeElement.style.display = "";
+          }
         }
-      }
 
-      if (bandeAnnonce != null) {
-        if (bandeAnnonce["en"] != null && bandeAnnonce["fr"] == null) {
-          this.frameDemonstrationShow.nativeElement.src = bandeAnnonce["en"][0];
-          this.frameDemonstrationShow.nativeElement.style.display = "";
-        } else if (bandeAnnonce["fr"] != null) {
-          this.frameDemonstrationShow.nativeElement.src = bandeAnnonce["fr"][0];
-          this.frameDemonstrationShow.nativeElement.style.display = "";
+        if (bandeAnnonce != null) {
+          if (bandeAnnonce["en"] != null && bandeAnnonce["fr"] == null) {
+            this.frameDemonstrationShow.nativeElement.src = bandeAnnonce["en"][0];
+            this.frameDemonstrationShow.nativeElement.style.display = "";
+          } else if (bandeAnnonce["fr"] != null) {
+            this.frameDemonstrationShow.nativeElement.src = bandeAnnonce["fr"][0];
+            this.frameDemonstrationShow.nativeElement.style.display = "";
+          }
         }
-      }
 
+        this.frameDemonstrationShow.nativeElement.contentWindow.speaker[0].muted = false;
+      }
     }
   }
 

@@ -1,64 +1,23 @@
 <div style="padding:7vh 0 12vh 0;color:white;">
     <div>
-        <div #headerSerieDescription style="position: absolute;top:0;left: 0;right: 0;z-index:1; opacity: 0.6;
-        filter: alpha(opacity=90)"></div>
+        <div #headerSerieDescription style="position: absolute;top:0;left: 0;right: 0;z-index:1; opacity: 0.8;"></div>
         <div>
 
         </div>
-        <div class="col-md-12 row" style="z-index: 2;position: absolute;">
-            <div class="col-md-3" style="height: 35vh;">
+        <div class="col-md-12 row" style="z-index: 2;position: absolute;height: 40vh;">
+            <div class="col-md-3" style="height: 35vh;max-height: 25vh;">
                 <img src="{{showCurrent.poster_path}}" alt="" style="height: 100%;">
             </div>
             <div class="col-md-5">
                 <h1 style="color: white;">{{showCurrent.title}} ({{showCurrent.original_title}})</h1>
-                <div style="text-align: left;text-decoration: underline;font-weight: bold;">Synopsis et détaillés</div>
-                <p style="text-align: justify;">{{showCurrent.description}}</p>
+               
                 <div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h4 style="text-align: left;text-decoration: underline;font-weight: bold;">Saisons</h4>
-                            <div>
-                                <div style="text-align: left;">{{showCurrent.seasons}} </div>
-                            </div>
-
-                        </div>
-
-                        <div class="col-md-3">
-                            <div style="text-align: left;text-decoration: underline;font-weight: bold;">Nombre d'épisode
-                            </div>
-                            <div style="text-align: left;">{{showCurrent.episodes}}</div>
-                        </div>
-
-
-                        <div class="col-md-3">
-                            <div style="text-align: left;text-decoration: underline;font-weight: bold;">Date de sortie
-                            </div>
-                            <div style="text-align: left;">{{showCurrent.creation}}</div>
-                        </div>
-
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h4 style="text-align: left;text-decoration: underline;font-weight: bold;">Chaine d'origine
-                            </h4>
-                            <div style="text-align: left;">{{showCurrent.network}}</div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <h4 style="text-align: left;text-decoration: underline;font-weight: bold;">Status</h4>
-                            <div>
-                                <div style="text-align: left;">{{showCurrent.status}} </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="btn btn-primary">Ajouter dans ma liste</button>
-                    </div>
+                    <button class="btn btn-primary">Ajouter dans ma liste</button>
                 </div>
+
             </div>
-            <div class="col-md-4" style="padding: 1%;">
-                <iframe #frameDemonstrationShow style="height: 98%; width: 98%; ">
+            <div class="col-md-4" style="padding: 1%;max-height: 80%;">
+                <iframe #frameDemonstrationShow frameborder="0" volume="20" allow="autoplay; encrypted-media"  allowfullscreen style="height: 98%; width: 98%; display: none;">
 
                 </iframe>
             </div>
@@ -66,5 +25,49 @@
     </div>
 
 
-    <div></div>
+    <div style="margin-top:45vh;color:white;padding: 5%;">
+        <div style="text-align: left;text-decoration: underline;font-weight: bold;">Synopsis et détaillés</div>
+        <p style="text-align: justify;">{{showCurrent.description}}</p>
+        <div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h4 style="text-align: left;text-decoration: underline;font-weight: bold;">Saisons</h4>
+                    <div>
+                        <div style="text-align: left;">{{showCurrent.seasons}} </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+                    <div style="text-align: left;text-decoration: underline;font-weight: bold;">Nombre d'épisode
+                    </div>
+                    <div style="text-align: left;">{{showCurrent.episodes}}</div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div style="text-align: left;text-decoration: underline;font-weight: bold;">Date de sortie
+                    </div>
+                    <div style="text-align: left;">{{showCurrent.creation}}</div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <h4 style="text-align: left;text-decoration: underline;font-weight: bold;">Chaine d'origine
+                    </h4>
+                    <div style="text-align: left;">{{showCurrent.network}}</div>
+                </div>
+
+                <div class="col-md-3">
+                    <h4 style="text-align: left;text-decoration: underline;font-weight: bold;">Status</h4>
+                    <div>
+                        <div style="text-align: left;">{{showCurrent.status}} </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
 </div>
