@@ -16,8 +16,6 @@ export class ShowService {
   }
 
   GetTopShow() {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-
     const reqHeader = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
@@ -27,9 +25,18 @@ export class ShowService {
     return this.http.get<ShowVm>(this.Url + '/TopShow', reqHeader);
   }
 
+  SaveFoolowShow(ShowId: number) {
+    const reqHeader = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    console.log("envoie requette " + ShowId);
+    return this.http.post(this.Url + `/ShowFollow?ShowId=${ShowId}`, reqHeader);
+  }
+
   GetTopShowWeek() {
 
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
     const reqHeader = {
       headers: new HttpHeaders({
@@ -42,8 +49,6 @@ export class ShowService {
   }
 
   GetShow(Id: number, IdTM: string) {
-    console.log('GetShow with id=' + Id + ' TM' + IdTM);
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
     const reqHeader = {
       headers: new HttpHeaders({
