@@ -35,4 +35,6 @@ export class FilmOrShow {
     backdrop: string;
     backdrop_path: string;
     production_year: string;
+
+    platforms : Platform
 }

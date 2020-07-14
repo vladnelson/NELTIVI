@@ -107,7 +107,7 @@ export class HomeSerieComponent implements OnInit {
     const divShow = (event.target as HTMLInputElement).parentElement.parentElement;
     const id = divShow.dataset.idshow;
     if (id != null || id != undefined) {
-      this.router.navigate([`./serie/${id}`]);
+      this.router.navigate([`./serie/${id}/%20`]);
     }
   }
 
@@ -121,12 +121,12 @@ export class HomeSerieComponent implements OnInit {
     let detailShow = divShow.children[1] as HTMLInputElement;
     const id = divShow.dataset.idshow;
 
-    console.log(id);
-    console.log(divShow);
-    console.log(divShow.dataset);
+
     if (id != null || id != undefined) {
+
       divShow.style.minWidth = '600px';
       divShow.style.width = '600px';
+
 
       divShow.classList.remove("col-1");
       divShow.classList.add("col-3");
@@ -144,7 +144,6 @@ export class HomeSerieComponent implements OnInit {
     const divShow = event.target as HTMLInputElement;
     let imageShow = divShow.children[0] as HTMLInputElement;
     let detailShow = divShow.children[1] as HTMLInputElement;
-    
     const id = divShow.dataset.idshow;
 
     if (id != null || id != undefined) {

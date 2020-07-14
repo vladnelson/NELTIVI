@@ -17,8 +17,8 @@ const routes: Routes = [
     { path: 'profil', component: ProfilComponent },
     { path: 'series', component: HomeSerieComponent },
     { path: 'films', component: HomeFilmsComponent },
-    { path: 'serie/:serieId', component: SerieComponent },
-    { path: 'film/:filmId', component: FilmComponent },
+    { path: 'serie/:serieId/:serieIdTM', component: SerieComponent },
+    { path: 'film/:filmId/:filmIdTM', component: FilmComponent },
 
     { path: '**', component: NotFoundComponent }
 ];
