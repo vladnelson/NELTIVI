@@ -36,7 +36,7 @@ export class SerieComponent implements OnInit, AfterViewInit {
     private showService: ShowService,
     private authenticationService: AuthenticationService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,) {
       this.authenticationService.currentUser.subscribe(x => this._currentUserAllRoles = x);
   }
 

@@ -16,7 +16,8 @@ import { SerieComponent } from './series/serie/serie.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeFilmsComponent } from './films/home-films/home-films.component';
 import { FilmComponent } from './films/film/film.component';
-
+import { ProfilComponent } from './profil/profil.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -29,14 +30,16 @@ import { FilmComponent } from './films/film/film.component';
     SerieComponent,
     NotFoundComponent,
     HomeFilmsComponent,
-    FilmComponent
+    FilmComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
     appRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }

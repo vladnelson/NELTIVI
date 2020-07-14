@@ -23,7 +23,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<Users>(JSON.parse(localStorage.getItem(this.CURRENT_USER)));
     this.currentUser = this.currentUserSubject.asObservable();
-    this.Url = 'http://localhost:1836/';
+    this.Url = 'http://digitteamlog-001-site3.ctempurl.com/';
 
     let currentuser: any = JSON.parse(localStorage.getItem('currentUser'));
     console.log(currentuser);
@@ -94,6 +94,6 @@ export class AuthenticationService {
     userDataRegister.Email = email;
     userDataRegister.Password = password;
     userDataRegister.ConfirmPassword = password;
-    return this.http.post<RegisterVm[]>(this.Url + '/api/Account/Register', userDataRegister, httpOptions);
+    return this.http.post<RegisterVm[]>(this.Url + 'api/Account/Register', userDataRegister, httpOptions);
   }
 }

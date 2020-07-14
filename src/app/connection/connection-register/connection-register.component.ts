@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/_services/api/authentication.service';
 import { first } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class ConnectionRegisterComponent implements OnInit {
   registerForm: FormGroup;
   loadingRegister = false;
   submitted = false;
-  constructor() { }
+  constructor(private toast: ToastrService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -47,8 +48,12 @@ export class ConnectionRegisterComponent implements OnInit {
       .pipe(first())
       .subscribe(
         () => {
-          console.log('succes');
+          this.toast.success('Création valider, vous pouvez vous connecter.');
 
+        },
+        (error: string) => {
+          this.error = error;
+          this.toast.error("Votre tentative de connection n'a pas aboutit," + error + "Rééssayer", "Inscipriton échoué !")
         }
       );
   }
