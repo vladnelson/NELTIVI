@@ -8,8 +8,8 @@ import { FilmAndShowVm } from 'src/app/_viewmodels';
 export class HomeService {
   private Url: string;
   constructor(private http: HttpClient) {
-    //this.Url = 'http://digitteamlog-001-site3.ctempurl.com/api/Home';
-    this.Url = 'http://localhost:1836/api/Home';
+    this.Url = 'http://digitteamlog-001-site3.ctempurl.com/api/Home';
+    //this.Url = 'http://localhost:1836/api/Home';
     
   }
 

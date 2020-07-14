@@ -16,8 +16,8 @@ export class AppComponent {
   @ViewChild('BodySearch') blockSearch;
   _currentUserAllRoles: Users;
   title = 'neltivi';
-  url_images_Pref_Shows = 'http://localhost:1836/Content/Images/Shows';
-  url_images_Pref_Movies = 'http://localhost:1836/Content/Images/Movies';
+  url_images_Pref_Shows = 'http://digitteamlog-001-site3.ctempurl.com/Content/Images/Shows';
+  url_images_Pref_Movies = 'http://digitteamlog-001-site3.ctempurl.com/Content/Images/Movies';
   public SerieQuery: Array<FilmOrShow>;
   public MoviesQuery: Array<FilmOrShow>;
   isNavbarCollapsed = false;
