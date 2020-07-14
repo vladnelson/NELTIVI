@@ -40,8 +40,8 @@ export class ShowService {
 
   }
 
-  GetShow(Id: number) {
-    console.log('GetShow with id=' + Id);
+  GetShow(Id: number, IdTM: string) {
+    console.log('GetShow with id=' + Id + ' TM' + IdTM);
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
 
     const reqHeader = {
@@ -50,7 +50,12 @@ export class ShowService {
       })
     };
 
-    return this.http.get<ShowVm>(this.Url + `/Show?ShowId=${Id}`, reqHeader);
+    if (Id != 0) {
+      return this.http.get<ShowVm>(this.Url + `/Show?ShowId=${Id}&ShowNameTM=${IdTM}`, reqHeader);
+    } else {
+      return this.http.get<ShowVm>(this.Url + `/Show?ShowId=${Id}&ShowNameTM=${IdTM}`, reqHeader);
+    }
+
   }
 
   GetLastVideosShow() {

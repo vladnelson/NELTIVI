@@ -107,7 +107,7 @@ export class HomeSerieComponent implements OnInit {
     const divShow = (event.target as HTMLInputElement).parentElement.parentElement;
     const id = divShow.dataset.idshow;
     if (id != null || id != undefined) {
-      this.router.navigate([`./serie/${id}`]);
+      this.router.navigate([`./serie/${id}/%20`]);
     }
   }
 
@@ -120,15 +120,20 @@ export class HomeSerieComponent implements OnInit {
     let imageShow = divShow.children[0] as HTMLInputElement;
     let detailShow = divShow.children[1] as HTMLInputElement;
 
-    divShow.style.minWidth = '600px';
-    divShow.style.width = '600px';
+    const id = divShow.dataset.idshow;
+
+    if (id != null || id != undefined) {
+
+      divShow.style.minWidth = '600px';
+      divShow.style.width = '600px';
 
 
-    divShow.classList.remove("col-1");
-    divShow.classList.add("col-3");
-    imageShow.classList.remove("col-md-12");
-    imageShow.classList.add("col-md-3");
-    detailShow.style.display = "";
+      divShow.classList.remove("col-1");
+      divShow.classList.add("col-3");
+      imageShow.classList.remove("col-md-12");
+      imageShow.classList.add("col-md-3");
+      detailShow.style.display = "";
+    }
   }
 
   /**
@@ -139,15 +144,18 @@ export class HomeSerieComponent implements OnInit {
     const divShow = event.target as HTMLInputElement;
     let imageShow = divShow.children[0] as HTMLInputElement;
     let detailShow = divShow.children[1] as HTMLInputElement;
+    const id = divShow.dataset.idshow;
 
-    divShow.style.minWidth = '';
-    divShow.style.width = '';
+    if (id != null || id != undefined) {
+      divShow.style.minWidth = '';
+      divShow.style.width = '';
 
-    divShow.classList.remove("col-3");
-    divShow.classList.add("col-1");
-    imageShow.classList.remove("col-md-3");
-    imageShow.classList.add("col-md-12");
-    detailShow.style.display = "none";
+      divShow.classList.remove("col-3");
+      divShow.classList.add("col-1");
+      imageShow.classList.remove("col-md-3");
+      imageShow.classList.add("col-md-12");
+      detailShow.style.display = "none";
+    }
   }
 
 }

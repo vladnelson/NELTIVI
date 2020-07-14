@@ -103,9 +103,30 @@ export class AppComponent {
       this.blockSearch.nativeElement.style.display = 'none';
     }
   }
+  GoDetailMovie(event: Event) {
+    const divShow = (event.target as HTMLInputElement).parentElement.parentElement;
+    const id = divShow.dataset.filmid;
+    if (id != null && id != undefined) {
+      this.blockSearch.nativeElement.style.display = 'none';
+      this.router.navigate([`./Film/0/${id}`]);
+    }
+  }
 
-  logout($event) {
-  
+  GoDetailShow(event: Event) {
+    const divShow = (event.target as HTMLInputElement).parentElement.parentElement;
+    const id = divShow.dataset.serieid;
+    if (id != null && id != undefined) {
+      this.blockSearch.nativeElement.style.display = 'none';
+      this.router.navigate([`./serie/0/${id}`]);
+    }
+  }
+
+  ExitSearch(event : Event){
+    this.blockSearch.nativeElement.style.display = 'none';
+  }
+
+  logout(event) {
+
     this.authenticationService.logout();
     this.router.navigate(['/connect']);
   }

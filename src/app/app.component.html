@@ -16,9 +16,10 @@
                     <h2>FILMS</h2>
                     <div class="row flex-nowrap col-md-12" style="height: 70%">
                         <div class="col-1" *ngFor="let film of MoviesQuery"
-                            style="margin-right: 4px;padding-right: 0;cursor: pointer;margin-right: 20px;">
+                            style="margin-right: 4px;padding-right: 0;cursor: pointer;margin-right: 20px;"
+                             (click)='GoDetailMovie($event)' [attr.data-filmId]="film.id">
                             <div class="card card-block" data-id="{{film.id}}"
-                                style="height: 100%;width: 100%;border:0px solid black;background: transparent;">
+                                style="height: auto;width: 100%;border:0px solid black;background: transparent;">
                                 <img src="{{film.poster_path}}" alt="" style="border-radius: 15px;">
                                 <h5>{{film.title}}</h5>
                             </div>
@@ -30,9 +31,10 @@
                     <h2>Series</h2>
                     <div class="row flex-nowrap col-md-12" style="height:70%">
                         <div class="col-1" *ngFor="let serie of SerieQuery"
-                            style="margin-right: 4px;padding-right: 0;cursor: pointer;margin-right: 20px;">
+                            style="margin-right: 4px;padding-right: 0;cursor: pointer;margin-right: 20px;"
+                            (click)='GoDetailShow($event)'   [attr.data-serieId]="serie.name">
                             <div class="card card-block" data-id="{{serie.id}}"
-                                style="height: 100%;width: 100%;border:0px solid black;background: transparent;">
+                                style="height: auto;width: 100%;border:0px solid black;background: transparent;">
                                 <img src="{{serie.poster_path}}" alt="" style="border-radius: 15px;">
 
                                 <h5>{{serie.name}}</h5>

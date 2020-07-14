@@ -1,4 +1,6 @@
+import { Svod } from './svod';
+
 export class Platform {
-    id: number;
-    name: string;
+    svod : Svod;
+    svods : Svod[];
 }

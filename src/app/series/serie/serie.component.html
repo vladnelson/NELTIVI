@@ -11,7 +11,7 @@
             <div class="col-md-5">
                 <h1 style="color: white;">{{showCurrent.title}} ({{showCurrent.original_title}})</h1>
                
-                <div>
+                <div *ngIf="_currentUserAllRoles">
                     <button class="btn btn-primary">Ajouter dans ma liste</button>
                 </div>
 
@@ -25,7 +25,17 @@
     </div>
 
 
-    <div style="margin-top:45vh;color:white;padding: 5%;">
+    <div class="col-md-12 " style="margin-top:45vh;color:white;padding: 5%;" >
+        <div class="col-md-12 row" >
+            <div class="col-md-1" *ngFor="let plateformVideo of plateformVideos"  style="cursor: pointer;" [attr.data-idPlateformVideo]="plateformVideo.id"  [attr.data-link]="plateformVideo.link_url" (click)='GoPlateform($event)'>
+                <img [attr.data-link]="plateformVideo.link_url" src='{{plateformVideo.logo}}' height="60" width="60">
+                <div [attr.data-link]="plateformVideo.link_url">
+                    {{plateformVideo.name}}
+                </div>
+            </div>
+
+        </div>
+
         <div style="text-align: left;text-decoration: underline;font-weight: bold;">Synopsis et détaillés</div>
         <p style="text-align: justify;">{{showCurrent.description}}</p>
         <div>
