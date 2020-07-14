@@ -23,7 +23,8 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<Users>(JSON.parse(localStorage.getItem(this.CURRENT_USER)));
     this.currentUser = this.currentUserSubject.asObservable();
-    this.Url = 'http://digitteamlog-001-site3.ctempurl.com/';
+    //this.Url = 'http://digitteamlog-001-site3.ctempurl.com/';
+    this.Url = 'http://localhost:1836/';
 
     let currentuser: any = JSON.parse(localStorage.getItem('currentUser'));
     console.log(currentuser);

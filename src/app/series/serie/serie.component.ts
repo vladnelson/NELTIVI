@@ -20,7 +20,9 @@ export class SerieComponent implements OnInit, AfterViewInit {
   private sub: Subscription;
   private serieId: number;
   _currentUserAllRoles: Users;
-  url_images_Pref_Shows = 'http://digitteamlog-001-site3.ctempurl.com/Content/Images/Shows';
+  //url_images_Pref_Shows = 'http://digitteamlog-001-site3.ctempurl.com/Content/Images/Shows';
+  url_images_Pref_Shows = 'http://localhost:1836/Content/Images/Shows';
+  
   showCurrent = new FilmOrShow();
 
 

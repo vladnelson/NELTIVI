@@ -8,7 +8,8 @@ import { FilmVm } from 'src/app/_viewmodels';
 export class FilmService {
   private Url: string;
   constructor(private http: HttpClient) {
-    this.Url = 'http://digitteamlog-001-site3.ctempurl.com/api/Film';
+    //this.Url = 'http://digitteamlog-001-site3.ctempurl.com/api/Film';
+    this.Url = 'http://localhost:1836/api/Film';
   }
 
 
