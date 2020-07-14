@@ -5,13 +5,13 @@
 
         </div>
         <div class="col-md-12 row" style="z-index: 2;position: absolute;height: 40vh;">
-            <div class="col-md-3" style="height: 35vh;max-height: 25vh;">
+            <div class="col-md-3" style="height: 35vh;max-height: 25vh;margin-top: 2vh;;">
                 <img src="{{showCurrent.poster_path}}" alt="" style="height: 100%;">
             </div>
             <div class="col-md-5">
                 <h1 style="color: white;">{{showCurrent.title}} ({{showCurrent.original_title}})</h1>
                
-                <div>
+                <div *ngIf="_currentUserAllRoles">
                     <button class="btn btn-primary">Ajouter dans ma liste</button>
                 </div>
 
@@ -26,6 +26,10 @@
 
 
     <div style="margin-top:45vh;color:white;padding: 5%;">
+        <div style="text-align: left;text-decoration: underline;font-weight: bold;">Plateforme Streaming</div>
+        <div>
+            
+        </div>
         <div style="text-align: left;text-decoration: underline;font-weight: bold;">Synopsis et détaillés</div>
         <p style="text-align: justify;">{{showCurrent.description}}</p>
         <div>

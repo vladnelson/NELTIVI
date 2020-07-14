@@ -6,6 +6,8 @@ import { FilmOrShow } from 'src/app/_models/film-or-show';
 import { Creator } from 'src/app/_models/creator';
 import { Platform } from 'src/app/_models/platform';
 import { DemoVisual } from 'src/app/_models/demoVisual';
+import { AuthenticationService } from 'src/app/_services/api/authentication.service';
+import { Users } from 'src/app/_models';
 
 @Component({
   selector: 'app-serie',
@@ -17,7 +19,8 @@ export class SerieComponent implements OnInit, AfterViewInit {
   @ViewChild('frameDemonstrationShow') frameDemonstrationShow: ElementRef;
   private sub: Subscription;
   private serieId: number;
-  url_images_Pref_Shows = 'http://localhost:1836/Content/Images/Shows';
+  _currentUserAllRoles: Users;
+  url_images_Pref_Shows = 'http://digitteamlog-001-site3.ctempurl.com/Content/Images/Shows';
   showCurrent = new FilmOrShow();
 
 
@@ -29,8 +32,9 @@ export class SerieComponent implements OnInit, AfterViewInit {
   constructor(
     private showService: ShowService,
     private route: ActivatedRoute,
-    private router: Router) {
-
+    private router: Router,
+    private authenticationService: AuthenticationService) {
+      this.authenticationService.currentUser.subscribe(x => this._currentUserAllRoles = x);
   }
   ngAfterViewInit(): void {
     console.log(this.headerDiv.nativeElement.innerHTML);

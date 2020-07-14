@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from 'src/app/_services/api/authentication.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class ConnectionLoginComponent implements OnInit {
   @Input() router: Router;
   @Input() returnUrl: string;
   error: string;
-  constructor() { }
+  constructor(private toast: ToastrService) { }
   loginForm: FormGroup;
   loadingLogin = false;
   submitted = false;
@@ -45,9 +46,9 @@ export class ConnectionLoginComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         (error: string) => {
-          console.log(error);
           this.error = error;
           this.loadingLogin = false;
+          this.toast.error("Votre tentative de connection n'a pas aboutit, Rééssayer","Authentification échoué !")
         }
       );
   }

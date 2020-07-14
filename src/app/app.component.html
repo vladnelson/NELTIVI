@@ -57,7 +57,7 @@
         <li class="nav-item dropdown" ngbDropdown>
             <a class="nav-link dropdown-toggle" id="id01" ngbDropdownToggle style="color: white;font-size: 1.3em;">{{_currentUserAllRoles.email}}</a>
             <div class="dropdown-menu" aria-labelledby="id01" ngbDropdownMenu>
-                <a class="dropdown-item" href="#">Profil</a>
+                <a class="dropdown-item" routerLink='profil'>Profil</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" (click)="logout($event)">Déconnection</a>
             </div>

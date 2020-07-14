@@ -11,7 +11,7 @@ export class ShowService {
   private Url: string;
 
   constructor(private http: HttpClient) {
-    this.Url = 'http://localhost:1836/api/Show';
+    this.Url = 'http://digitteamlog-001-site3.ctempurl.com/api/Show';
   }
 
   GetTopShow() {
