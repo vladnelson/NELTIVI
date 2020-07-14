@@ -11,8 +11,12 @@
             <div class="col-md-5">
                 <h1 style="color: white;">{{showCurrent.title}} ({{showCurrent.original_title}})</h1>
                
-                <div *ngIf="_currentUserAllRoles">
-                    <button class="btn btn-primary">Ajouter dans ma liste</button>
+                <div *ngIf="_currentUserAllRoles && !showCurrent.haveFollow">
+                    <button class="btn btn-primary"(click)="SaveFollowShow($event)" >Ajouter dans ma liste</button>
+                </div>
+
+                <div *ngIf="_currentUserAllRoles && showCurrent.haveFollow">
+                   Vous suivez cette série
                 </div>
 
             </div>

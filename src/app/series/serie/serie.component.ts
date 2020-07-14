@@ -24,7 +24,7 @@ export class SerieComponent implements OnInit, AfterViewInit {
   _currentUserAllRoles: Users;
   //url_images_Pref_Shows = 'http://digitteamlog-001-site3.ctempurl.com/Content/Images/Shows';
   url_images_Pref_Shows = 'http://localhost:1836/Content/Images/Shows';
-  
+
   showCurrent = new FilmOrShow();
 
   plateformVideos: Array<Svod>;
@@ -39,15 +39,36 @@ export class SerieComponent implements OnInit, AfterViewInit {
     private authenticationService: AuthenticationService,
     private route: ActivatedRoute,
     private router: Router,) {
-      this.authenticationService.currentUser.subscribe(x => this._currentUserAllRoles = x);
+    this.authenticationService.currentUser.subscribe(x => this._currentUserAllRoles = x);
+    this.showCurrent.haveFollow=true;
+    this.plateformVideos = new Array<Svod>();
   }
 
   ngAfterViewInit(): void {
-    this.plateformVideos = new Array<Svod>();
     console.log(this.headerDiv.nativeElement.innerHTML);
   }
 
+  SaveFollowShow(event: Event) {
+    console.log("On go follow");
+    const btn = event.target as HTMLInputElement;
+    btn.disabled=true;
+    this.showService.SaveFoolowShow(this.serieId)
+      .subscribe((Response) => {
+        console.log(Response);
+        console.log("Reussi");
+        var divParent = btn.parentElement;
+        divParent.innerHTML="";
+        divParent.textContent="Vous suivez cette série";
+      },
+        (error) => {
+          console.log(error);
+          btn.disabled=false;
+        }
+      );
+  }
+
   ngOnInit() {
+  
 
     this.sub = this.route.params.subscribe(params => {
       this.serieId = params['serieId'];
@@ -56,9 +77,11 @@ export class SerieComponent implements OnInit, AfterViewInit {
 
       this.showService.GetShow(this.serieId, this.serieIdTM)
         .subscribe((Response) => {
-          console.log(Response);
+          
+          
           this.showCurrent = Response.shows[0];
-          console.log(this.showCurrent);
+          
+          
           this.showCurrent.backdrop_path = this.showCurrent.images.banner;
           this.showCurrent.poster_path = this.showCurrent.images.poster;
           this.headerDiv.nativeElement.style.background = ' url("' + this.showCurrent.images.banner + '") no-repeat  40%/100%';
@@ -87,6 +110,8 @@ export class SerieComponent implements OnInit, AfterViewInit {
             }
           }
 
+          
+
         },
           (error) => console.log(error));
     });
@@ -108,7 +133,7 @@ export class SerieComponent implements OnInit, AfterViewInit {
         let Teaser = element.videos["Teaser"];
         let Extrai = element.videos["Extrai"];
 
-        this.frameDemonstrationShow.nativeElement.src="";
+        this.frameDemonstrationShow.nativeElement.src = "";
         //==============================================================================
         // Sélection de la vidéo de démonstration à montrer.
         //==============================================================================

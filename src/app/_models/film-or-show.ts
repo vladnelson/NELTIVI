@@ -36,5 +36,6 @@ export class FilmOrShow {
     backdrop_path: string;
     production_year: string;
 
-    platforms : Platform
+    platforms : Platform;
+    haveFollow: boolean;
 }
